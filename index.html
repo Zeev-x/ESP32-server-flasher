@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ESP32 Web Flasher</title>
+  <script type="module" src="https://unpkg.com/esp-web-tools@8.0.1/dist/web/install-button.js?module"></script>
+  <style>
+    :root {
+      --main-color: #00e1ff;
+      --bg-color: #111;
+      --card-color: #1e1e1e;
+      --button-color: #00e1ff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: var(--bg-color);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 2rem;
+    }
+
+    .card {
+      background-color: var(--card-color);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0, 225, 255, 0.2);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--main-color);
+    }
+
+    p {
+      color: #ccc;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    esp-web-install-button {
+      --install-button-color: #000;
+      --install-button-background: var(--main-color);
+      --install-button-border-radius: 12px;
+      --install-button-padding: 0.75rem 1.5rem;
+    }
+
+    button[slot="activate"] {
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: var(--button-color);
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      transition: 0.3s ease;
+    }
+
+    button[slot="activate"]:hover {
+      background: #00c9e6;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🚀 ESP32 flasher</h1>
+    <p>Klik tombol di bawah untuk flashing ESP32 Anda.</p>
+
+    <esp-web-install-button manifest="firmware/manifest.json">
+      <button slot="activate">🔌 Hubungkan & Flash</button>
+    </esp-web-install-button>
+  </div>
+</body>
+</html>
